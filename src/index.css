@@ -1,0 +1,262 @@
+body {
+  margin: 0;
+  padding: 0;
+  width:100%;
+  height:100%;
+  font-family: sans-serif;
+  height: 100vh;
+  background-color:#121d31 !important;
+}
+
+@media (min-width:1000px) {
+  body {
+    background: url("background.jpg") top; 
+    background-size:cover;
+  }
+  
+  .connexion, .inscription {
+    width: 45%;
+    text-align:center;
+    margin: 0 auto;
+    text-align:center;
+    color:white;
+  }
+  
+  .lien_inscription {
+    width: 95%;
+  }
+  
+  .theme {
+    width: 30%;
+  }
+  
+  .mode {
+    width: 45%;
+  }
+  
+  .question  {
+    width:70%;
+  }
+  
+  .questions {
+    padding:10px;
+  }
+  
+}
+
+
+@media (max-width:1000px) {
+  body {
+    background: url("background_mobile.jpg") no-repeat top; 
+    background-size:cover;
+  }
+  
+  .connexion, .inscription {
+    margin:10px;
+    text-align:center;
+    color:white;
+    padding-bottom:100px;
+  }
+  
+  .lien_inscription {
+    width: 86%;
+  }
+  
+  .theme, .mode, .question {
+    width: 100%;
+    padding: 9px;
+  }
+}
+
+
+h1 {
+  text-align:center;
+  color:white;
+  font-size:40px;
+  margin-top:15vh;
+  text-shadow: 2px 2px 2px black;
+}
+
+.sous-titre {
+  color:white;
+  text-align:center;
+  padding:0;
+  margin-top:-30px;
+  font-weight:600;
+  padding-bottom:10px;
+}
+
+/*** MENUU **/
+ul li a{
+  color:white;
+}
+
+.lien_inscription {
+  bottom: 100px;
+}
+
+.lien_inscription li {
+    list-style-type: none; 
+}
+
+/******** connexion ******/
+
+.formulaire, .themes {
+  color:white;
+  color: white;
+    margin: 0 auto!important;
+  margin: 20px;
+}
+
+.ensemble_champ {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulaire span, .themes span {
+  font-weight:600;
+  color:white;
+  text-align: left;
+  padding-bottom:10px;
+  padding-top:15px;
+}
+
+.champs {
+  padding-left:15px;
+  margin-top:60px;
+  margin: 0px;
+  padding-right:15px;
+  padding-top:10px;
+  padding-bottom:10px;
+  color:#aaa;
+}
+
+.btn_commencer {
+  background-color:#942c4f;
+  padding-top:11px;
+  padding-bottom:11Px;
+  font-weight:600;
+  margin-top:20px;
+  color:white;
+  transition:0.3s;
+  border:1px solid #942c4f;
+  box-shadow: 1px 2px 17px #542339;
+}
+
+.btn_commencer:hover {
+  /*opacity:0.7;*/
+  cursor:pointer;
+  color:white;
+  transition:0.3s;
+  border:1px solid #eb9f93;
+  background-color: rgb(233,146, 133);
+  box-shadow: 1px 2px 17px #eb9f93;
+}
+
+/** inscription ***/
+.mini {
+  font-size:12px;
+}
+
+
+/*** theme **/
+.Menu {
+  width:100%;
+  position:sticky;
+}
+
+@media(max-width:1000px) {
+  .Menu {
+  box-shadow: 1px 3px 17px #000;
+    bottom: 0;
+    background-color: #b5435d;
+    width: 100%;
+    position: fixed;
+    margin:0;
+  }
+}
+
+button {
+  text-decoration:none;
+  background:none;
+  color:white;
+  border:none;
+  padding:10px;
+}
+
+button:hover {
+  cursor:pointer;
+}
+
+.Menu li {
+  list-style-type: none;
+}
+
+.Menu button:hover {
+  cursor:pointer;
+  color:#aaa;
+}
+
+
+.themes, .modes {
+  justify-content: space-around;
+	display:flex;
+	flex-wrap:wrap;
+  text-align:center;
+  width:100%;
+  align-item:center;
+  color:white;
+  margin:0 auto;
+}
+
+.touslesquestions {
+  color:white;
+  margin:0 auto;
+  text-align:center;
+  padding-bottom:100px;
+}
+
+.questions {
+  flex-wrap:wrap;
+  display:flex;
+  text-align:center;
+  color:white;
+  margin:0 auto;
+}
+
+.touslesquestions h2 {
+  text-align:center;
+  margin: 0 auto;
+  padding-bottom:30px;
+}
+
+.question {
+  margin:auto;
+}
+
+.theme, .mode, .question {
+  margin-top:10px;
+  padding-top:30px;
+  transition:0.4s;
+  padding-bottom:30px;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+.theme:hover, .mode:hover, .question:hover  {
+  cursor: pointer;
+  -webkit-box-shadow: 1px 3px 17Px #000000;
+  box-shadow: 1px 3px 17Px #000000;
+  transition:0.4s;
+}
+
+.fa {
+  padding-right:10px;
+  font-size:20px;
+}
+
+
+/**** multi **/
+.ajouterjoueur {
+  padding:10px;
+  text-align:left;
+}
