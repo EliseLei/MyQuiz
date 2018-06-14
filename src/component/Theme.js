@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom'
  class Theme extends Component {
 
   render() {
-//  const multi = this.props.multi;
-//    console.log(this.props.match.params.multi);
+   const multi = this.props.match.params.multi;
+     console.log(this.props.match.params.multi);
+
     return (
       <div className ="Theme">
         <Menu/>
@@ -15,7 +16,7 @@ import { Link } from 'react-router-dom'
         <div className = "touslesthemes">
         <div className ="themes">
           <div className="theme">
-            <Link to='/Theme/Questions'><h2><i className="fa fa-book"></i> Histoire</h2>
+            <Link to={`/Theme/${ multi }/Questions`}><h2><i className="fa fa-book"></i> Histoire</h2>
             <span>Libellé1</span></Link>
           </div>
           <div className ="theme">
@@ -42,7 +43,7 @@ import { Link } from 'react-router-dom'
         </div>
       </div>
       
-      {/*  {multi && <Invitation/>} */}
+      {multi === "multi"? <Invitation/>:<p></p>} 
       
       </div>
     );

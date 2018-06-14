@@ -7,22 +7,23 @@ import { Link } from 'react-router-dom'
     super(props);
   
     this.state = {
-      multi : "lala"
+      multi : "multi"
     };
   }
   
+  
   render() {
-
+    console.log(this.state.multi);
     return (
       <div className ="Mode_jeu">
         <Menu/>
         <h2>Choississez un mode de jeu</h2>
     
          <div className ="modes">
-           <Link to='/Theme' className ="mode">
+           <Link to={`/Theme/${ "solo" }`} className ="mode">
              <h2><i className ="fa fa-user"></i> MODE SOLO</h2>
           </Link>
-          <Link to='/Thememulti' className ="mode">
+          <Link to={`/Theme/${ "multi" }`} className ="mode">
              <h2><i className ="fa fa-users"></i>MODE MULTIJOUEUR</h2>
             </Link>
          </div>
