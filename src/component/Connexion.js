@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import Menu from './Menu'
 import { Link } from 'react-router-dom'
 
 class Connexion extends Component {
-  constructor(props){
-    super(props);
-  }
   
   seconnecter = () => {
     var email = document.getElementById("email").value;
@@ -24,23 +20,24 @@ class Connexion extends Component {
       }  */
       
     return (
-      <div className="Connexion">
+      <div className="inscription">
         <h1>REACT QUIZ </h1>
-        <p class="sous-titre">  Découvrez des questions sur </p>
-          <div class="formulaire">
-            <div class="ensemble_champ">
+        <p className="sous-titre">  Découvrez des questions sur </p>
+          <div className="formulaire">
+            <div className="ensemble_champ">
               <span>Votre Email</span> 
-              <input type="text" class="champs" id="email" placeholder="Email"/>
+              <input type="text" className="champs" id="email" placeholder="Email"/>
             </div>
-            <div class="ensemble_champ">
+            <div className="ensemble_champ">
               <span>Votre mot de passe</span> 
-              <input type="password" class="champs" id="mdp" placeholder="Mot de passe"/>
+              <input type="password" className="champs" id="mdp" placeholder="Mot de passe"/>
             </div>
-            <div class="ensemble_champ">
-              <input type="button" onClick={this.seconnecter} class="champs btn_commencer" value="COMMENCER"/>
+            <div className="ensemble_champ">
+              <input type="button" onClick={this.seconnecter} className="champs btn_commencer" value="COMMENCER"/>
             </div>
+              <Link to='/Inscription'><u>Inscrivez-vous ! </u></Link>
         </div>
-        <Link to='/Inscription'><u>Inscrivez-vous ! </u></Link>
+      
       </div>
           
     );

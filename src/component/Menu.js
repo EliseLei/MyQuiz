@@ -4,17 +4,14 @@ import { Link } from 'react-router-dom'
 class Menu extends Component {
   render() {
     return (
-      <div>
-      <h1>je suis menu</h1>
-      <nav>
-        <ul>
-          <li>REACT QUIZ</li>
-          {/* <li><Link to='/Connexion'>Connexion</Link></li>
-          <li><Link to='/test2'>Inscription</Link></li>*/}
-          <li><Link to='/MonProfil'>Profil</Link></li>
-          <li><Link to='/'>Déconnexion</Link></li>
-        </ul>
-      </nav>
+      <div className ="menu_connecte">
+        <nav className ="Menu">
+          <ul className ="Rubrique">
+            <li><h2><Link to='/'>REACT QUIZ</Link></h2></li>
+            <li><Link to='/MonProfil'><i class="fa fa-user"></i> Profil</Link></li>
+            <li><Link to='/'><i class="fa fa-chevron-circle-right"></i>Déconnexion</Link></li>
+          </ul>
+        </nav>
       </div>
     );
   }

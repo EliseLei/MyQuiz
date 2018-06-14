@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import Menu from './Menu'
 import { Link } from 'react-router-dom'
 
 class Inscription extends Component {
-  constructor(props){
-    super(props);
-  }
   
   seconnecter = () => {
     var email = document.getElementById("email").value;
@@ -28,26 +24,26 @@ class Inscription extends Component {
     return (
       <div className = "inscription">
         <h1>REACT QUIZ </h1>
-        <p class="sous-titre">  Découvrez des questions sur</p>
-        <div class="formulaire">
-          <div class="ensemble_champ">
+        <p className ="sous-titre">  Découvrez des questions sur</p>
+        <div className ="formulaire">
+          <div className ="ensemble_champ">
             <span>Votre Pseudo*</span> 
-            <input type="text" class="champs" id="Pseudo" placeholder="Pseudo"/>
+            <input type="text" className ="champs" id="Pseudo" placeholder="Pseudo"/>
           </div>
-          <div class="ensemble_champ">
+          <div className ="ensemble_champ">
             <span>Votre Email*</span> 
-            <input type="text" class="champs" id="email" placeholder="Email"/>
+            <input type="text" className ="champs" id="email" placeholder="Email"/>
           </div>
-          <div class="ensemble_champ">
-            <span>Votre mot de passe* <span class="mini">Minimum 8 caractères</span></span> 
-            <input type="password" class="champs" id="mdp" placeholder="Mot de passe"/>
+          <div className ="ensemble_champ">
+            <span>Votre mot de passe* <span className ="mini">Minimum 8 caractères</span></span> 
+            <input type="password" className ="champs" id="mdp" placeholder="Mot de passe"/>
           </div>
-          <div class="ensemble_champ">
+          <div className ="ensemble_champ">
             <span>Confirmation mot de passe*</span> 
-            <input type="password" class="champs" id="confirmationmdp" placeholder="Confirmation Mot de passe"/>
+            <input type="password" className ="champs" id="confirmationmdp" placeholder="Confirmation Mot de passe"/>
           </div>
-          <div class="ensemble_champ">
-            <input type="button" onClick={this.seconnecter} class="champs btn_commencer" value="COMMENCER"/>
+          <div className ="ensemble_champ">
+            <input type="button" onClick={this.seconnecter} className ="champs btn_commencer" value="COMMENCER"/>
           </div>
           <Link to='/'><u>Déjà un compte ? Connectez-vous </u></Link>
         </div>

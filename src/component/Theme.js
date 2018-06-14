@@ -2,50 +2,47 @@ import React, { Component } from 'react';
 import Menu from './Menu'
 import Invitation from './Invitation'
 import { Link } from 'react-router-dom'
+ class Theme extends Component {
 
-class Theme extends Component {
-  constructor(props){
-    super(props);
-  }
-  
   render() {
-  const multijoueur = this.props.multijoueur;
+//  const multi = this.props.multi;
+//    console.log(this.props.match.params.multi);
     return (
-      <div className="Theme">
+      <div className ="Theme">
         <Menu/>
-        <Link to='/Mode_jeu'>Revenir au mode de jeu</Link>
-        <h1>Hello je suis dans le theme</h1>
+        <Link to='/Mode_jeu'><i class="fa fa-chevron-left"></i><span className="displaymobile">Revenir au mode de jeu</span></Link>
+        <h2>Choississez un thème</h2>
         <div className = "touslesthemes">
-        <div class="themes">
-          <div class="theme">
-            <h2><i class="fa fa-book"></i> Histoire</h2>
+        <div className ="themes">
+          <div className="theme">
+            <Link to='/Theme/Questions'><h2><i className="fa fa-book"></i> Histoire</h2>
+            <span>Libellé1</span></Link>
+          </div>
+          <div className ="theme">
+            <h2><i className="fa fa-globe"></i>Géographie</h2>
             <span>Libellé1</span>
           </div>
-          <div class="theme">
-            <h2><i class="fa fa-globe"></i>Géographie</h2>
+          <div className ="theme">
+            <h2><i className="fa fa-film"></i>Film</h2>
             <span>Libellé1</span>
           </div>
-          <div class="theme">
-            <h2><i class="fa fa-film"></i>Film</h2>
+          <div className = "theme">
+            <h2><i className="fa fa-pencil-alt"></i>Artistes</h2>
             <span>Libellé1</span>
           </div>
-          <div class="theme">
-            <h2><i class="fa fa-pencil-alt"></i>Artistes</h2>
+          <div className = "theme">
+            <h2><i className="fa fa-glasses"></i>Culture G</h2>
             <span>Libellé1</span>
           </div>
-          <div class="theme">
-            <h2><i class="fa fa-glasses"></i>Culture G</h2>
+          <div className="theme">
+            <h2><i className="fa fa-calculator"></i>Mathématique</h2>
             <span>Libellé1</span>
           </div>
-          <div class="theme">
-            <h2><i class="fa fa-calculator"></i>Mathématique</h2>
-            <span>Libellé1</span>
-          </div>
-          <p><i class="fa fa-dice-two"></i><u>Jouer en mode aléatoire</u></p>
+          <p><i className="fa fa-dice-two"></i><u>Jouer en mode aléatoire</u></p>
         </div>
       </div>
       
-       {multijoueur && <Invitation/>} 
+      {/*  {multi && <Invitation/>} */}
       
       </div>
     );
