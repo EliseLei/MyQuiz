@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Joueur (props) {
+function Joueur(props) {
   return ( 
-    <p>Joueurs choisis :  {
-    props.joueursalreadyadd.map(function(joueur) {
-      return <span key={joueur}>{joueur}, </span>
+    <p>{
+    props.lettersalreadyplayed.map(function(lettre) {
+      return <span key={lettre}>{lettre} <button>x</button>, </span>
 			})
     }
     </p>

@@ -12,7 +12,10 @@ import { Link } from 'react-router-dom'
       <div className ="Theme">
         <Menu/>
         <Link to='/Mode_jeu'><i class="fa fa-chevron-left"></i><span className="displaymobile">Revenir au mode de jeu</span></Link>
-        <h2>Choississez un thème</h2>
+        <div class="haut">
+          <h2>Choississez un thème</h2>       
+          <div className="invitation">{multi === "multi"? <Invitation/>:<p></p>} </div>
+        </div>
         <div className = "touslesthemes">
         <div className ="themes">
           <div className="theme">
@@ -43,7 +46,7 @@ import { Link } from 'react-router-dom'
         </div>
       </div>
       
-      {multi === "multi"? <Invitation/>:<p></p>} 
+
       
       </div>
     );

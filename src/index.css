@@ -42,6 +42,24 @@ body {
     padding:10px;
   }
   
+  .haut {
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+  }
+  
+  .invitation {
+    color:white;
+    text-align:right;
+    position:absolute;
+    top:30px;
+    right:0;
+    padding:30px;
+  }
+  
+  .touslesthemes h2 {padding-bottom:30px;}
+  
 }
 
 
@@ -49,6 +67,10 @@ body {
   body {
     background: url("background_mobile.jpg") no-repeat top; 
     background-size:cover;
+  }
+  
+  .invitation {
+    color:white;
   }
   
   .connexion, .inscription {
@@ -150,6 +172,7 @@ ul li a{
 .btn_commencer {
   background-color:#942c4f;
   padding-top:11px;
+  margin-bottom: 15px;
   padding-bottom:11Px;
   font-weight:600;
   margin-top:20px;
@@ -159,7 +182,19 @@ ul li a{
   box-shadow: 1px 2px 17px #542339;
 }
 
-.btn_commencer:hover {
+.btn_ajouter {
+  background-color:#942c4f;
+  padding-top:11px;
+  padding-bottom:11Px;
+  font-weight:600;
+  margin-top:20px;
+  color:white;
+  transition:0.3s;
+  border:1px solid #942c4f;
+  box-shadow: 1px 2px 17px #542339;
+}
+
+.btn_commencer:hover, .btn_ajouter:hover {
   /*opacity:0.7;*/
   cursor:pointer;
   color:white;
