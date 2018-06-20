@@ -6,7 +6,7 @@ import Resultats from './Resultats'
 class MonProfil extends Component {
   
   render() {
-    const username = this.props.username
+    const username = this.props.location.state.username
     return (
       <div className="MonProfil">
         <Menu/>

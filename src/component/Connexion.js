@@ -54,7 +54,10 @@ class Connexion extends Component {
 
     }
   //  this.props.changerIsLoggedIn();
-    this.props.history.push("/Mode_jeu");
+    this.props.history.push({
+      pathname : "/Mode_jeu",
+      state : {username : this.state.username}
+    });
   }
 
   

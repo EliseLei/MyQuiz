@@ -7,16 +7,24 @@ import { Link } from 'react-router-dom'
     super(props);
   
     this.state = {
-      multi : "multi"
+      multi : "multi",
     };
   }
-  
+
+  componentWillMount  = () => {
+    if(this.props.location.state && this.props.location.state.username && !this.state.username) {
+      this.setState({username:this.props.location.state.username})
+      console.log("coucou");
+    }
+
+  }
   
   render() {
-    console.log(this.state.multi);
+
+    console.log(this.state.username);
     return (
       <div className ="Mode_jeu">
-        <Menu/>
+        <Menu username={this.state.username}/>
         <h2>Choississez un mode de jeu</h2>
     
          <div className ="modes">
