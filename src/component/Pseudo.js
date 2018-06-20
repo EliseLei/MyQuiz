@@ -84,6 +84,8 @@ class Pseudo extends Component {
         <input type="button" className="btn_ajouter" value="AJOUTER" onClick={this.setValue}/>
         <Joueur lettersalreadyplayed={lettersalreadyplayed}/>
         <p><u>{erreur}</u></p>
+        <input className="champs" type="text" id="lettre" onChange={this.setUpdate} placeholder="Entrer une adresse mail"/>
+        <input type="button" className="btn_ajouter" value="ENVOYER" onClick={this.setValue}/>
       </div>
     )
   }
