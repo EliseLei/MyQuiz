@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
   
   
   render() {
-    console.log(this.state.multi);
+    // console.log(this.state.multi);
     return (
       <div className ="Mode_jeu">
         <Menu/>

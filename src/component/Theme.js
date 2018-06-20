@@ -21,7 +21,7 @@ import axios from "axios/index";
              .then(res => {
                  this.setState({data : res.data})
                  // console.log(response);
-                 console.log(this.state.data);
+                 // console.log(this.state.data);
              })
              .catch(function (error) {
                  console.log(error);
@@ -29,14 +29,17 @@ import axios from "axios/index";
      }
   render() {
    const multi = this.props.match.params.multi;
-     console.log(this.props.match.params.multi);
+     // console.log(this.props.match.params.multi);
 
 
     const themList = this.state.data.map((theme) => (
-        <div className ="theme">
-            <h2><i className="fa fa-globe">{theme.libelle}</i></h2>
-        </div>
+        <Link to={`/Theme/${ multi }/Questions/theme-${theme.id}`} className ="theme">
+            <div>
+                <img className="img_theme" src={theme.pic} alt="marche pas"/> <h2>{theme.libelle}</h2>
+            </div>
+        </Link>
     ))
+      // <Link({to: "task", params: {userId: params.userId}, onClick: this.handleClick("foo")}, "foo task")
 
 
     return (
@@ -44,6 +47,8 @@ import axios from "axios/index";
 
       <div className ="Theme">
         <Menu/>
+
+
         <Link to='/Mode_jeu'><i class="fa fa-chevron-left"></i><span className="displaymobile">Revenir au mode de jeu</span></Link>
           <div class="haut">
           <h2>Choississez un thème</h2>       
@@ -51,14 +56,13 @@ import axios from "axios/index";
           </div>
         <div className = "touslesthemes">
             <div className ="themes">
-
-
                 {themList}
 
 
                 {/*<div className="theme">*/}
                 {/*<Link to={`/Theme/${ multi }/Questions`}><h2><i className="fa fa-book"></i> Histoire</h2>*/}
-                {/*<span>{componentDidMount()</span></Link>*/}
+                {/*<span>{componentD
+                idMount()</span></Link>*/}
             </div>
 
       </div>

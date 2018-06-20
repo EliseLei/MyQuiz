@@ -338,3 +338,11 @@ h2 {
   padding:10px;
   text-align:left;
 }
+
+/**
+image theme
+ */
+.img_theme {
+  width: 150px;
+  height: 150px;
+}
