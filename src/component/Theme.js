@@ -28,13 +28,17 @@ import axios from "axios/index";
              });
      }
   render() {
-      const username = this.props.location.state.username
+      const username = this.props.location.state.username;
    const multi = this.props.match.params.multi;
      // console.log(this.props.match.params.multi);
 
 
     const themList = this.state.data.map((theme) => (
-        <Link to={`/Theme/${ multi }/Questions/theme-${theme.id}`} className ="theme">
+        <Link to={{
+            pathname : `/Theme/${ multi }/Questions/theme-${theme.id}`,
+            state: {username: this.state.username}
+
+        }} className ="theme">
             <div>
                 <img className="img_theme" src={theme.pic} alt="marche pas"/> <h2>{theme.libelle}</h2>
             </div>
