@@ -6,6 +6,7 @@ import logo from '../logo.svg';
 class Menu extends Component {
   render() {
     const username = this.props.username
+    console.log(username);
     return (
       <div className ="menu_connecte">
         <nav className ="Menu">
@@ -19,6 +20,7 @@ class Menu extends Component {
             
             ><i className="fa fa-user"></i> Profil</Link></li>
             <li><Link to='/'><i className="fa fa-chevron-circle-right"></i>Déconnexion</Link></li>
+            <li className="right">BIENVENUE {username}</li>
           </ul>
         </nav>
       </div>

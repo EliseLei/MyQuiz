@@ -28,6 +28,7 @@ import axios from "axios/index";
              });
      }
   render() {
+      const username = this.props.location.state.username
    const multi = this.props.match.params.multi;
      console.log(this.props.match.params.multi);
 
@@ -43,9 +44,14 @@ import axios from "axios/index";
 
 
       <div className ="Theme">
-        <Menu/>
-        <Link to='/Mode_jeu'><i class="fa fa-chevron-left"></i><span className="displaymobile">Revenir au mode de jeu</span></Link>
-          <div class="haut">
+        <Menu username={username}/>
+        <Link to= {{
+          pathname: '/Mode_jeu',
+          state: {username: username}
+        }}
+        
+        ><i className="fa fa-chevron-left"></i><span className="displaymobile">Revenir au mode de jeu</span></Link>
+          <div className="haut">
           <h2>Choississez un thème</h2>       
           <div className="invitation">{multi === "multi"? <Invitation/>:<p></p>} </div>
           </div>

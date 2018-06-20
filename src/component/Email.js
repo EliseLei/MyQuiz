@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Joueur from './Joueur.js';
 
 //console.log(input.val);
-class Pseudo extends Component {
+class Email extends Component {
   constructor(props) {
   	super(props)
     this.setValue = this.setValue.bind(this),
@@ -18,6 +18,7 @@ class Pseudo extends Component {
   
   setValue() {
     var writelettre = this.state.writelettre.toLowerCase();
+    var statut = false;
     var erreur = false;
     var that = this;
     var lettersalreadyplayed = this.state.lettersalreadyplayed;
@@ -33,11 +34,11 @@ class Pseudo extends Component {
     })
     
     if(erreur === true) {
-      erreur = "Ce joueur a déjà été ajouté";
+      erreur = "L'invitation a déjà été envoyé";
       this.setState({erreur:erreur,});
     }
     else {
-      erreur = "";
+      erreur = "L'invitation a bien été envoyé :)";
       this.setState({erreur:erreur,});
     }
 
@@ -45,23 +46,14 @@ class Pseudo extends Component {
     if(alreadyplayed === false) {
     
       if(lettersalreadyplayed.push(writelettre)) {
-        document.getElementById('lettre').value="";
+        document.getElementById('Email').value="";
         console.log("suppr valeur");
       }
-  //  lettersalreadyplayed.push(writelettre);
-
-    //var writelettre = document.getElementById("valeur").value="";
-    
-        
-        
-    /*this.state.letters.map(function(lettre) {
-      if(writelettre === lettre) {
-        statut = true;
-        that.setState({statut:statut, lettre:writelettre, lettersalreadyplayed:lettersalreadyplayed,});
-      } 
-        return true;
-    })  */
       
+      
+        statut = "Oui, la lettre se trouve dans le mot";
+        console.log("bon");
+        this.setState({statut:statut,});
 
     }
 }
@@ -80,12 +72,12 @@ class Pseudo extends Component {
     
     return (
       <div>
-        <input className="champs" type="text" id="lettre" onChange={this.setUpdate} placeholder="Entrer le pseudo d'un joueur"/>
-        <input type="button" className="btn_ajouter" value="AJOUTER" onClick={this.setValue}/>
-        <Joueur lettersalreadyplayed={lettersalreadyplayed}/>
-        <p><u>{erreur}</u></p>
+        <input className="champs" type="text" id="Email" onChange={this.setUpdate} placeholder="Inviter un joueur par mail"/>
+        <input type="button" className="btn_ajouter" value="ENVOYER" onClick={this.setValue}/>
+       <Joueur lettersalreadyplayed={lettersalreadyplayed}/>
+       <p><u>{erreur}</u></p>
       </div>
     )
   }
 }
-export default Pseudo
+export default Email

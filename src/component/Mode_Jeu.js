@@ -11,12 +11,11 @@ import { Link } from 'react-router-dom'
     };
   }
 
-  componentWillMount  = () => {
+  componentWillMount  = (username) => {
     if(this.props.location.state && this.props.location.state.username && !this.state.username) {
       this.setState({username:this.props.location.state.username})
       console.log("coucou");
     }
-
   }
   
   render() {
@@ -28,10 +27,16 @@ import { Link } from 'react-router-dom'
         <h2>Choississez un mode de jeu</h2>
     
          <div className ="modes">
-           <Link to={`/Theme/${ "solo" }`} className ="mode">
+           <Link to={{
+             pathname: `/Theme/${ "solo" }`,
+             state: {username: this.state.username}
+           }} className ="mode">
              <h2><i className ="fa fa-user"></i> MODE SOLO</h2>
           </Link>
-          <Link to={`/Theme/${ "multi" }`} className ="mode">
+          <Link to={{
+            pathname: `/Theme/${ "multi" }`,
+            state: {username: this.state.username}
+          }} className ="mode">
              <h2><i className ="fa fa-users"></i>MODE MULTIJOUEUR</h2>
             </Link>
          </div>

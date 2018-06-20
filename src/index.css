@@ -332,6 +332,25 @@ h2 {
   font-size:20px;
 }
 
+p {
+  color:white;
+}
+
+@media (max-width:992Px) {
+  li.right {
+    display:none;
+  }
+}
+
+@media (min-width:992Px) {
+  li.right {
+    position:absolute;
+    right:35px;
+    top:37px;
+    color:white;
+  }
+}
+
 
 /**** multi **/
 .ajouterjoueur {

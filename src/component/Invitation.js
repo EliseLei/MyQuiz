@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import Pseudo from './Pseudo'
+import Email from './Email'
+
 
 class Invitation extends Component {
   
@@ -9,7 +10,7 @@ class Invitation extends Component {
     return (
       <div className = "Invitation">
         <Pseudo/>
-      {/*  <Email/>*/}
+        <Email/>
       </div>
           
     );
