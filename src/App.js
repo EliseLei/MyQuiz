@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './logo.svg';
 import './index.css';
 import { Switch, Route } from 'react-router-dom';
 import Connexion from './component/Connexion';

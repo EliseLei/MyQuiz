@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from "axios/index";
-// import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'admin-on-rest';
 
 class Connexion extends Component {
-    constructor(props){
-        super(props);
+  constructor(props){
+    super(props);
+    this.setInformation = this.setInformation.bind(this)
 
-        this.state = {
-            data : []
-        };
+    this.state = {
+        username : '',
+        data : []
     }
+  }
+
+  setInformation = (e) => {
+    var username = e.target.value;
+    this.setState({username:username});
+      console.log(username);
+  }
 
   seconnecter = () => {
     var username = document.getElementById("username").value;
@@ -18,13 +25,6 @@ class Connexion extends Component {
       var bodyFormData = new FormData();
       bodyFormData.set('username', username);
       bodyFormData.set('password', motdepasse);
-      // formData.append('username',username);
-      // formData.append('password',motdepasse);
-    //
-    // var dataUsername = formData.get('username');
-    // var dataPassword = formData.get('password');
-    //   console.log(dataUsername);
-    //   console.log(dataPassword);
 
     {
 
@@ -51,10 +51,13 @@ class Connexion extends Component {
 
     }
   //  this.props.changerIsLoggedIn();
-    this.props.history.push("/Mode_jeu");
+    this.props.history.push({
+      pathname : "/Mode_jeu",
+      state : {username : this.state.username}
+    });
   }
 
-
+  
   render() {
     /*const isLoggedIn = this.state.isLoggedIn;
       if (isLoggedIn === true) {
@@ -68,11 +71,11 @@ class Connexion extends Component {
         <p className="sous-titre">  Découvrez des questions sur </p>
           <div className="formulaire">
             <div className="ensemble_champ">
-              <span>Votre Email</span>
-              <input type="text" className="champs" id="username" placeholder="Email"/>
+              <span>Votre Pseudo</span>
+              <input type="text" className="champs" id="username" onChange={this.setInformation} placeholder="Email"/>
             </div>
             <div className="ensemble_champ">
-              <span>Votre mot de passe</span>
+              <span>Votre mot de passe</span> 
               <input type="password" className="champs" id="mdp" placeholder="Mot de passe"/>
             </div>
             <div className="ensemble_champ">
@@ -80,9 +83,9 @@ class Connexion extends Component {
             </div>
               <Link to='/Inscription'><u>Inscrivez-vous ! </u></Link>
         </div>
-
+      
       </div>
-
+          
     );
   }
 }

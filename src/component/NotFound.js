@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Menu from './Menu'
+import React from 'react';
 import { Link } from 'react-router-dom'
 
 const NotFound = () => (
