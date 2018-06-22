@@ -357,3 +357,15 @@ p {
   padding:10px;
   text-align:left;
 }
+
+/**
+image theme
+ */
+.img_theme {
+  width: 150px;
+  height: 150px;
+}
+
+.question .theme:active, .question .theme:focus{
+  background-color: blue;
+}
