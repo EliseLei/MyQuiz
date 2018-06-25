@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@api-platform/admin": "^0.5.0",
+    "@types/axios-token-interceptor": "^0.1.1",
     "admin-on-rest": "^1.4.1",
     "aor-rich-text-input": "^1.0.2",
     "axios": "^0.18.0",

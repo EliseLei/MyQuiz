@@ -323,7 +323,7 @@ h2 {
 .theme:hover, .mode:hover, .question:hover  {
   cursor: pointer;
   -webkit-box-shadow: 1px 3px 17Px #000000;
-  box-shadow: 1px 3px 17Px #000000;
+  box-shadow: 1px 3px 17Px #a5d821;
   transition:0.4s;
 }
 
@@ -368,4 +368,16 @@ image theme
 
 .question .theme:active, .question .theme:focus{
   background-color: blue;
+}
+
+.questionList {
+  color: white;
+}
+
+.goodAnswer{
+  background-color: green;
+}
+
+.badAnswer{
+  background-color: red;
 }

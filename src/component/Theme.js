@@ -28,15 +28,15 @@ import axios from "axios/index";
              });
      }
   render() {
-      const username = this.props.location.state.username;
-   const multi = this.props.match.params.multi;
+    const username = this.props.location.state.username;
+    const multi = this.props.match.params.multi;
      // console.log(this.props.match.params.multi);
 
 
     const themList = this.state.data.map((theme) => (
         <Link to={{
             pathname : `/Theme/${ multi }/Questions/theme-${theme.id}`,
-            state: {username: this.state.username}
+            state: {username: this.state.username, themeLibelle: theme.libelle}
 
         }} className ="theme">
             <div>

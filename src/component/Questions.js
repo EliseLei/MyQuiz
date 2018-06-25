@@ -8,7 +8,11 @@ class Theme extends Component {
         super(props);
         this.state = {
             quiz : [],
-            currentIndex: 0
+            radioValue: "",
+            answers: [],
+            goodAnswers: [],
+            currentIndex: 0,
+            points: 0
         };
     }
 
@@ -19,34 +23,71 @@ console.log(theme);
         axios.get('http://localhost:8000/api/themes/'+theme+'/questions')
             .then(res => {
                 const quiz = [];
+                const answers = [];
 
                 for (let q in res.data['quiz']) {
                     console.log(res.data['quiz'][q])
                     quiz.push(res.data['quiz'][q])
+                    answers.push(res.data['quiz'][q].reponse)
+
                 }
                 this.setState({quiz : quiz})
-                console.log(res.data);
-                console.log(this.state.quiz);
+                this.setState({goodAnswers : answers})
+                // console.log(res.data);
+                // console.log(this.state.quiz);
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
 
-    // handleClick = (e) => {
-    //     this.setState({currentIndex: ++})
-    //
-    // }
-//     axios.get('/user', {
-//     params: {
-//         ID: 12345
-//     }
-// })
+
+    CountPoint= () => {
+
+            for(var j=0;j<this.state.goodAnswers.length;j++) {
+                if(this.state.answers == this.state.goodAnswers[j]){
+                    // console.log(this.state.answers[i]);
+                    // console.log(this.state.answers[j]);
+                    this.setState({points: this.state.points+1 })
+                }
+            }
+            this.setState({answers: []})
+    }
+    EnvoisReponse= () => {
+
+        var radioChecked = document.querySelector('input[name="proposition"]:checked');
+
+        if (radioChecked) {
+
+
+            var valeur = document.querySelector('input[name="proposition"]:checked').value;
+            this.setState({radioValue: valeur});
+            this.state.answers.push(valeur);
+
+            console.log(this.state.quiz.reponse);
+            console.log(this.state.answers);
+            radioChecked = document.querySelector('input[name="proposition"]').checked=false;
+            var ele = document.getElementsByName("proposition");
+            for(var i=0;i<ele.length;i++) {
+                ele[i].checked = false;
+            }
+
+        }
+        console.log(this.state.radioValue);
+
+        return valeur;
+    }
+
 
   render() {
       const theme = this.props.match.params.themeId;
       const multi = this.props.match.params.multi;
       const username = this.props.location.state.username;
+      const themeLibelle = this.props.location.state.themeLibelle;
+      var reponse = this.state.radioValue;
+      var goodAnswers = this.state.goodAnswers;
+      var anwsers    = this.state.answers;
+      var nbPoints = this.state.points;
 
        const path = "/Theme/"+multi;
        const Button = ({multi}) => (
@@ -77,40 +118,71 @@ const currentQuestion = quizList[this.state.currentIndex];
 
         <Button multi={multi}/>
       
-        <h2>Vous avez choisi le thème : THEME</h2>
-        <div>
-            {
-                quizList.map((quiz, index) => (
+        <h2>Vous avez choisi le thème : {themeLibelle} </h2>
 
-                <div className="question" id={index+1}>
-                    <h4> QUESTION {index+1} / 10 </h4>
+              <div>
+                {
+                    quizList.map((quiz, index) => (
+                        <form id={"quizForm_"+ index} name="quizForm" method="post">
+                            <div className="question" id={index+1}>
+                                <span className="questionList">
+                                    <h4> QUESTION {index+1} / 10 </h4>
+                                    <h3>{quiz.question}</h3>
+                                </span>
 
-                    <h3>{currentQuestion.question}</h3>
-                    <div className ="themes">
-                        <div className="theme" onClick={this.handleClick}>
-                            <h3>{quiz.proposition_1}</h3>
-                        </div>
-                    </div>
-                    <div className ="themes">
-                        <div className="theme" onClick={this.handleClick}>
-                            <h3>{quiz.proposition_2}</h3>
-                        </div>
-                    </div>
-                    <div className ="themes">
-                        <div className="theme" onClick={this.handleClick}>
-                            <h3>{quiz.proposition_3}</h3>
-                        </div>
-                    </div>
-                    <div className ="themes">
-                        <div className="theme" onClick={this.handleClick}>
-                            <h3>{quiz.proposition_4}</h3>
-                        </div>
-                    </div>
-                </div>
-                ))
-            }
+                                {quiz.proposition_1 ?
+                                        <div className ="themes">
+                                            <div className="theme" onClick={this.handleClick}>
+                                                <input type="radio" id="proposition_1" name="proposition" value={quiz.proposition_1}/>
+                                                <label>{quiz.proposition_1}</label>
+                                            </div>
+                                        </div> :
+                                  "" }
 
-        </div>
+                                {quiz.proposition_2 ?
+                                <div className ="themes">
+                                    <div className="theme" onClick={this.handleClick}>
+                                        <input type="radio" id="proposition_2" name="proposition" value={quiz.proposition_2}/>
+                                        <label>{quiz.proposition_2}</label>
+                                    </div>
+                                </div> :
+                                "" }
+                                {quiz.proposition_3 ?
+                                    <div className ="themes">
+                                        <div className="theme" onClick={this.handleClick}>
+                                            <input type="radio" id="proposition_3" name="proposition" value={quiz.proposition_3}/>
+                                            <label>{quiz.proposition_3}</label>
+                                        </div>
+                                    </div> :
+                                ""}
+
+                                {quiz.proposition_4 ?
+                                <div className ="themes">
+                                    <div className="theme" onClick={this.handleClick}>
+                                        <input type="radio" id="proposition_4" name="proposition" value={quiz.proposition_4}/>
+                                        <label>{quiz.proposition_4}</label>
+                                    </div>
+                                </div> :
+                                ""}
+                                    <div className="ensemble_champ">
+                                        <input type="button" onClick={ (e) => {
+                                            this.EnvoisReponse();
+                                            document.getElementById("bouton_"+index).style.display = 'none';
+                                            this.CountPoint();
+                                        }}  id={"bouton_"+index} className="champs btn_commencer" value="Valider la réponse"/>
+                                        {(reponse == quiz.proposition_1 || reponse == quiz.proposition_2 || reponse == quiz.proposition_3|| reponse == quiz.proposition_4) ? (reponse == quiz.reponse ? <h3 id={"answer_"+ index} className="goodAnswer">Bonne réponse</h3> : <h3 id={"answer_"+ index} className="badAnswer">Mauvaise réponse la rep etait {quiz.reponse}</h3>) : null}
+                                        {/*{(reponse == quiz.proposition_1 || reponse == quiz.proposition_2 || reponse == quiz.proposition_3|| reponse == quiz.proposition_4) ? (reponse == quiz.reponse ? document.querySelector('input[name="proposition"]:checked').style.backgroundColor = 'green' :  document.querySelector('input[name="proposition"]:checked').style.backgroundColor = 'red') : null}*/}
+                                    </div>
+
+
+
+                            </div>
+                        </form>
+                    ))
+                }
+                  <h1>{nbPoints} Bonne réponse</h1>
+                  {/*{isGoodAnwer ? <h3 className="goodAnswer">Bonne réponse</h3> : <h3 className="badAnswer">Mauvaise réponse</h3>}*/}
+              </div>
 
           {/*<div>*/}
               {/*{*/}
