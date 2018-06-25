@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import Joueur from './Joueur.js';
+//import Email from './Email.js';
+import { Email, Item, Span, A, renderEmail } from 'react-html-email'
+import courier from 'courier-js';
 
 //console.log(input.val);
-class Email extends Component {
+class Mail extends Component {
   constructor(props) {
   	super(props)
     this.setValue = this.setValue.bind(this),
@@ -36,10 +39,23 @@ class Email extends Component {
     if(erreur === true) {
       erreur = "L'invitation a déjà été envoyé";
       this.setState({erreur:erreur,});
+    
     }
     else {
       erreur = "L'invitation a bien été envoyé :)";
       this.setState({erreur:erreur,});
+      const emailHTML = renderEmail(
+        <Email title="Hello World!">
+          <Item align="center">
+            <Span fontSize={20}>
+              This is an example email made with:
+              <A href="mailto:eliseleininger@gmail.com">react-html-email</A>.
+            </Span>
+          </Item>
+        </Email>
+      
+      )
+        console.log(emailHTML);
     }
 
       
@@ -58,6 +74,7 @@ class Email extends Component {
     }
 }
 
+
   setUpdate(e) {
       if(/[a-zA-Z]/.test(e.target.value)) {
         this.setState({writelettre:e.target.value});
@@ -70,14 +87,20 @@ class Email extends Component {
     const erreur = this.state.erreur;
     const lettersalreadyplayed = this.state.lettersalreadyplayed;
     
+    
     return (
       <div>
         <input className="champs" type="text" id="Email" onChange={this.setUpdate} placeholder="Inviter un joueur par mail"/>
-        <input type="button" className="btn_ajouter" value="ENVOYER" onClick={this.setValue}/>
+        <a href="mailto:eliseleininger@gmail.com"><input type="button" className="btn_ajouter" value="ENVOYER" onClick={this.setValue}/></a>
+        <a href="mailto:san@antonio.net
+?subject=Notre affaire
+&cc=partenaire@antonio.net
+&bcc=avocat@antonio.net
+&body=Bonjour"> HELLO </a>
        <Joueur lettersalreadyplayed={lettersalreadyplayed}/>
        <p><u>{erreur}</u></p>
       </div>
     )
   }
 }
-export default Email
+export default Mail

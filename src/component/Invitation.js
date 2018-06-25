@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Pseudo from './Pseudo'
-import Email from './Email'
+import Mail from './Mail'
 
 
 class Invitation extends Component {
@@ -10,7 +10,7 @@ class Invitation extends Component {
     return (
       <div className = "Invitation">
         <Pseudo/>
-        <Email/>
+        <Mail/>
       </div>
           
     );
