@@ -44,7 +44,7 @@ class Resultats extends Component {
 
 
   render() {
-      const resultList = this.state.results;
+      // const resultList = this.state.results;
       const nbVictory = this.state.nbVictory;
       const nbDefeat = this.state.nbDefeat;
       const nbPoint = this.state.nbPoint;

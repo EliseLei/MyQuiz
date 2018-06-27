@@ -5,8 +5,8 @@ import Joueur from './Joueur.js';
 class Pseudo extends Component {
   constructor(props) {
   	super(props)
-    this.setValue = this.setValue.bind(this),
-    this.setUpdate = this.setUpdate.bind(this)
+    this.setValue = this.setValue.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
   	this.state = {
       lettre: "", 
       statut: "", 
@@ -19,7 +19,7 @@ class Pseudo extends Component {
   setValue() {
     var writelettre = this.state.writelettre.toLowerCase();
     var erreur = false;
-    var that = this;
+    // var that = this;
     var lettersalreadyplayed = this.state.lettersalreadyplayed;
     var alreadyplayed = false;
 
@@ -74,7 +74,7 @@ class Pseudo extends Component {
   
   
   render() {
-    const statut = this.state.statut;
+    // const statut = this.state.statut;
     const erreur = this.state.erreur;
     const lettersalreadyplayed = this.state.lettersalreadyplayed;
     

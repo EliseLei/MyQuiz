@@ -35,8 +35,8 @@ import axios from "axios/index";
      // console.log(this.props.match.params.multi);
 
 
-    const themList = this.state.data.map((theme) => (
-        <Link to={{
+    const themList = this.state.data.map((theme,index) => (
+        <Link key={index} to={{
             pathname : `/Theme/${ multi }/Questions/theme-${theme.id}`,
             state: {username: this.state.username, themeLibelle: theme.libelle}
 

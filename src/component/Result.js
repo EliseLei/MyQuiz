@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Menu from './Menu'
-import { Link, Route } from 'react-router-dom'
-import axios from "axios/index"
+import { Link} from 'react-router-dom'
 
 class Result extends Component {
     constructor(props){
@@ -27,15 +26,15 @@ console.log(victory);
             <div className="Result">
                 <Menu username={username}/>
 
-                { victory == true ?
+                { victory === true ?
                     <div>
                         <h1>Victoire</h1>
-                        <img src={require("../img/victoirrre.jpg")}/>
+                        <img src={require("../img/victoirrre.jpg") } alt="NOP"/>
                     </div>
                     :
                     <div>
                         <h1>Défaite</h1>
-                        <img src={require("../img/defaitee.jpg")}/>
+                        <img src={require("../img/defaitee.jpg")} alt="NOP"/>
                     </div>
                         }
                 <h2>Votre Score : {points} / 10 </h2>

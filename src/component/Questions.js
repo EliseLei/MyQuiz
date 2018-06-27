@@ -47,7 +47,7 @@ console.log(theme);
     CountPoint= () => {
 
             for(var j=0;j<this.state.goodAnswers.length;j++) {
-                if(this.state.answers == this.state.goodAnswers[j]){
+                if(this.state.answers === this.state.goodAnswers[j]){
                     // console.log(this.state.answers[i]);
                     // console.log(this.state.answers[j]);
                     this.setState({points: this.state.points+1 })
@@ -83,9 +83,9 @@ console.log(theme);
     VoirResult = () => {
 
         let victory = false;
-        const Data = [ { victory: true,
-            nbPoint: 8,
-            User: "\/users\/3" } ];
+        // const Data = [ { victory: true,
+        //     nbPoint: 8,
+        //     User: "\/users\/3" } ];
 
         if(this.state.points >= 6){
             victory = true;
@@ -113,13 +113,13 @@ console.log(theme);
 
 
   render() {
-      const theme = this.props.match.params.themeId;
+      // const theme = this.props.match.params.themeId;
       const multi = this.props.match.params.multi;
       const themeLibelle = this.props.location.state.themeLibelle;
       const username = this.props.location.state.username;
       var reponse = this.state.radioValue;
-      var goodAnswers = this.state.goodAnswers;
-      var anwsers    = this.state.answers;
+      // var goodAnswers = this.state.goodAnswers;
+      // var anwsers    = this.state.answers;
       var nbPoints = this.state.points;
 
        const path = "/Theme/"+multi;
@@ -137,7 +137,7 @@ console.log(theme);
       // console.log(url);
       // console.log(theme);
       // console.log(themeId);
-const currentQuestion = quizList[this.state.currentIndex];
+// const currentQuestion = quizList[this.state.currentIndex];
 
 
       return (
@@ -206,7 +206,7 @@ const currentQuestion = quizList[this.state.currentIndex];
                                             document.getElementById("bouton_"+index).style.display = 'none';
                                             this.CountPoint();
                                         }}  id={"bouton_"+index} className="champs btn_commencer" value="Valider la réponse"/>
-                                        {(reponse == quiz.proposition_1 || reponse == quiz.proposition_2 || reponse == quiz.proposition_3|| reponse == quiz.proposition_4) ? (reponse == quiz.reponse ? <h3 id={"answer_"+ index} className="goodAnswer">Bonne réponse</h3> : <h3 id={"answer_"+ index} className="badAnswer">Mauvaise réponse la rep etait {quiz.reponse}</h3>) : null}
+                                        {(reponse === quiz.proposition_1 || reponse === quiz.proposition_2 || reponse === quiz.proposition_3|| reponse === quiz.proposition_4) ? (reponse === quiz.reponse ? <h3 id={"answer_"+ index} className="goodAnswer">Bonne réponse</h3> : <h3 id={"answer_"+ index} className="badAnswer">Mauvaise réponse la rep etait {quiz.reponse}</h3>) : null}
                                         {/*{(reponse == quiz.proposition_1 || reponse == quiz.proposition_2 || reponse == quiz.proposition_3|| reponse == quiz.proposition_4) ? (reponse == quiz.reponse ? document.querySelector('input[name="proposition"]:checked').style.backgroundColor = 'green' :  document.querySelector('input[name="proposition"]:checked').style.backgroundColor = 'red') : null}*/}
                                     </div>
 

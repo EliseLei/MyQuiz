@@ -63,7 +63,7 @@ class Connexion extends Component {
       if (isLoggedIn === true) {
           return ( <Redirect to="/Connexion"/>);
       }  */
-      const login_uri = 'http://localhost:8000/api/login_check';
+      // const login_uri = 'http://localhost:8000/api/login_check';
 
       return (
       <div className="inscription">

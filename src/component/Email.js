@@ -5,8 +5,8 @@ import Joueur from './Joueur.js';
 class Email extends Component {
   constructor(props) {
   	super(props)
-    this.setValue = this.setValue.bind(this),
-    this.setUpdate = this.setUpdate.bind(this)
+    this.setValue = this.setValue.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
   	this.state = {
       lettre: "", 
       statut: "", 
@@ -20,7 +20,7 @@ class Email extends Component {
     var writelettre = this.state.writelettre.toLowerCase();
     var statut = false;
     var erreur = false;
-    var that = this;
+    // var that = this;
     var lettersalreadyplayed = this.state.lettersalreadyplayed;
     var alreadyplayed = false;
 
@@ -68,7 +68,7 @@ class Email extends Component {
 }
 
   setUpdate(e) {
-    var erreur = false;
+    // var erreur = false;
       if(/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(e.target.value)) {
         this.setState({writelettre:e.target.value});
       }
@@ -77,7 +77,7 @@ class Email extends Component {
   
   
   render() {
-    const statut = this.state.statut;
+    // const statut = this.state.statut;
     const erreur = this.state.erreur;
     const lettersalreadyplayed = this.state.lettersalreadyplayed;
     

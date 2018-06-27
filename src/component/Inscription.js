@@ -6,13 +6,13 @@ class Inscription extends Component {
   
   seconnecter = () => {
 
-    {/** connecter avec l'api puis faire un post **/}
+    // {/** connecter avec l'api puis faire un post **/}
   //  this.props.changerIsLoggedIn();
     this.props.history.push("/Mode_jeu");
   }
 
     postUser = () => {
-        var username = document.getElementById("username").value;email
+        var username = document.getElementById("username").value;
         var email = document.getElementById("email").value;
         var mdp = document.getElementById("mdp").value;
         var confirmationmdp = document.getElementById("confirmationmdp").value;
