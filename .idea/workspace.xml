@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21d18a44-481f-4b09-a73a-d3b0268faddd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Connexion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Email.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Email.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Inscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Inscription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Pseudo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Pseudo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Questions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Result.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Result.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Resultats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Resultats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Theme.js" afterDir="false" />
-    </list>
+    <list default="true" id="21d18a44-481f-4b09-a73a-d3b0268faddd" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +48,8 @@
       <file leaf-file-name="Theme.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/component/Theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            <state relative-caret-position="155">
+              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -116,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/src/component/Email.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="363">
-              <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+              <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -197,7 +187,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1905" />
     <option name="width" value="1948" />
     <option name="height" value="2075" />
@@ -281,12 +271,12 @@
       <workItem from="1529690602559" duration="52425000" />
       <workItem from="1529947575274" duration="8447000" />
       <workItem from="1530001661954" duration="26000" />
-      <workItem from="1530042081619" duration="16064000" />
+      <workItem from="1530042081619" duration="16458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135627000" />
+    <option name="totallyTimeSpent" value="136021000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="762" y="0" width="779" height="830" extended-state="0" />
@@ -675,7 +665,7 @@
     <entry file="file://$PROJECT_DIR$/src/component/Email.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
-          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -688,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/Theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+        <state relative-caret-position="155">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
