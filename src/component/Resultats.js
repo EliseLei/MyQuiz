@@ -25,7 +25,7 @@ class Resultats extends Component {
                     results.push(res.data[q])
                     // console.log(res.data[q].victory)
                     this.setState({ nbPoint : this.state.nbPoint+res.data[q].nbPoint})
-                    if(res.data[q].victory == true){
+                    if(res.data[q].victory === true){
                         this.setState({nbVictory : this.state.nbVictory + 1})
                     }
                     else{

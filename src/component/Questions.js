@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Menu from './Menu'
-import { Link, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import axios from "axios/index";
 
 class Theme extends Component {

@@ -22,7 +22,7 @@ import axios from "axios/index";
          axios.get('http://localhost:8000/api/themes')
              .then(res => {
                  this.setState({data : res.data})
-                 // console.log(response);
+                 console.log(res);
                  // console.log(this.state.data);
              })
              .catch(function (error) {
