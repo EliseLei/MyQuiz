@@ -87,11 +87,11 @@ class Email extends Component {
         <input type="button" className="btn_ajouter" value="ENVOYER" onClick={this.setValue}/>
        <Joueur lettersalreadyplayed={lettersalreadyplayed}/>
        <p><u>{erreur}</u></p>
-       <p> <a href="mailto:eliseleininger@gmail.com
+  {/*   <p> <a href="mailto:eliseleininger@gmail.com
 ?subject=Notre affaire
 &cc=partenaire@antonio.net
 &bcc=avocat@antonio.net
-&body=Bonjour">  HFjqhfjhfjkeh</a> </p>
+&body=Bonjour">  HFjqhfjhfjkeh</a> </p>*/} 
       </div>
     )
   }
