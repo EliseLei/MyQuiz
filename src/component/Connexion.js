@@ -19,6 +19,7 @@ class Connexion extends Component {
       console.log(username);
   }
 
+
   seconnecter = () => {
     var username = document.getElementById("username").value;
     var motdepasse = document.getElementById("mdp").value;
@@ -39,7 +40,10 @@ class Connexion extends Component {
         })
             .then(function (response) {
                 //handle success
+                window.sessionStorage.accessToken = response.data.token;
+
                 console.log(response);
+                console.log(window.sessionStorage.accessToken);
             })
             .catch(function (response) {
                 //handle error
@@ -47,7 +51,6 @@ class Connexion extends Component {
             });
 
         console.log(axios.defaults.headers)
-
     }
   //  this.props.changerIsLoggedIn();
     this.props.history.push({

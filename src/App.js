@@ -10,6 +10,7 @@ import Mode_Jeu from './component/Mode_Jeu';
 import MonProfil from './component/MonProfil';
 import Questions from './component/Questions';
 import NotFound from './component/NotFound';
+import Result from './component/Result';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path='/' component={Connexion}/>
           {/*<Route exact path='/admin' component={Admin}/>*/}
           <Route exact path='/Inscription' component={Inscription}/>
+          <Route exact path='/Result' component={Result}/>
           <Route exact path='/MonProfil' component={MonProfil}/>
           <Route exact path='/Mode_Jeu' component={Mode_Jeu}/>
           <Route exact path='/Theme/:multi/Questions/theme-:themeId' component={Questions}/>

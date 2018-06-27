@@ -12,11 +12,13 @@ class Theme extends Component {
             answers: [],
             goodAnswers: [],
             currentIndex: 0,
-            points: 0
+            points: 0,
+            username: "",
         };
     }
 
     componentWillMount(){
+        this.setState({username: this.props.location.state.username})
         const theme = this.props.match.params.themeId;
 console.log(theme);
         axios.defaults.headers.common['Authorization'] = 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwidXNlcm5hbWUiOiJyb3JvIiwiaWF0IjoxNTI5MDU0OTA0LCJleHAiOjE1NjA1OTA5MDR9.ULSjYfRHWmIVvnDwqYJU0u13j-FptQHLq9vippUyyInyVwTF7KzqnS9dTua6QizeyC448JsfmmYgOzaqvuDeD-TW7pAEfjct0N-U_nCBGJcx3ScWiOUc5Ew3Fwno0B6BizyXSQRoW7TPGXlgOjSdcpXqe5M3SVGRG5aaRxBhldjS48UJEkxh1vAFtXEGLkpHjYaXN9oRyL7rQjOfLVEg4LKbwgp0uFe6ii7gSr_ha5GUOIBXFhwsk8RI30t44X4ZacLrAf1tYQqNdpsULJvlhj9IwvwtVotReE65gdFaTGDFC-3Vo_UwlO8IWrVUexXpzklpCMSghwW2uD9dvAKd7o9SebpiCNHqFa8YX_o3Xv0O5VG2KLcbRtYIRMyKQBu0EabTmBZ_aRHTuAiXzOtviBtGdEh0gV0khfiDMt8q963LiVVhGB-gfQ51ff3kwQkFXASxQ_UA_mPvH0LeQ8UjZqr6q6ds72XsGjARvv4UCtMIaIHvozgtX4Y5DF40HdxecSm-IDWkwb8BRpa_aMIKUwzIwvPGux9fZbYVCcKa3he3WcJjsUAwA1gjPvmawBnaKOLvYqnwcVw9PGVG-V8MK_oL970XWPgI2KnCRUlflfsEWijDAJAIGwcihXiRzZOHayeZ3kw6hIsi5z8QV5nVOPbcvQmFg8ZAsH44EsoaVqo';
@@ -78,12 +80,43 @@ console.log(theme);
         return valeur;
     }
 
+    VoirResult = () => {
+
+        let victory = false;
+        const Data = [ { victory: true,
+            nbPoint: 8,
+            User: "\/users\/3" } ];
+
+        if(this.state.points >= 6){
+            victory = true;
+        }
+            axios({
+                  method: 'post',
+                  url: 'http://localhost:8000/api/results',
+                  data: { victory: victory,
+                      nbPoint: this.state.points,
+                      User: "/api/users/3" },
+                  config: { headers: {'Content-Type': 'application/json' }}
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        this.props.history.push({
+            pathname : "/Result",
+            state : {username: this.state.username, points : this.state.points, victory : victory, modeJeu: this.props.match.params.multi}
+        });
+    }
+
 
   render() {
       const theme = this.props.match.params.themeId;
       const multi = this.props.match.params.multi;
-      const username = this.props.location.state.username;
       const themeLibelle = this.props.location.state.themeLibelle;
+      const username = this.props.location.state.username;
       var reponse = this.state.radioValue;
       var goodAnswers = this.state.goodAnswers;
       var anwsers    = this.state.answers;
@@ -117,12 +150,15 @@ const currentQuestion = quizList[this.state.currentIndex];
         <Link to={`/Theme/${ "solo" }`}><i class="fa fa-chevron-left"></i><span className="displaymobile">Revenir au Thème</span></Link>} */}
 
         <Button multi={multi}/>
-      
-        <h2>Vous avez choisi le thème : {themeLibelle} </h2>
+
+          <h2>Vous avez choisi le thème : {themeLibelle} </h2>
+          <h2>Vous devez faire 6 bonnes réponses ou plus pour gagner, Bonne chance !!
+          </h2>
 
               <div>
                 {
                     quizList.map((quiz, index) => (
+
                         <form id={"quizForm_"+ index} name="quizForm" method="post">
                             <div className="question" id={index+1}>
                                 <span className="questionList">
@@ -180,7 +216,10 @@ const currentQuestion = quizList[this.state.currentIndex];
                         </form>
                     ))
                 }
-                  <h1>{nbPoints} Bonne réponse</h1>
+                  <h1>{nbPoints} {nbPoints > 1 ? "Bonnes reponses" : "Bonne réponse"}</h1>
+                  <input type="button" onClick={ () => {
+                      this.VoirResult();
+                  }}  id={"result"} className="champs btn_commencer" value="Voir les résultats"/>
                   {/*{isGoodAnwer ? <h3 className="goodAnswer">Bonne réponse</h3> : <h3 className="badAnswer">Mauvaise réponse</h3>}*/}
               </div>
 

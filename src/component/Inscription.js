@@ -11,35 +11,23 @@ class Inscription extends Component {
     this.props.history.push("/Mode_jeu");
   }
 
-    componentDidMount(values){
+    postUser = () => {
         var username = document.getElementById("username").value;email
         var email = document.getElementById("email").value;
         var mdp = document.getElementById("mdp").value;
         var confirmationmdp = document.getElementById("confirmationmdp").value;
-        // var bodyFormData = new FormData();
-        // bodyFormData.set('username', username);
-        // bodyFormData.set('password', mdp);
-        // bodyFormData.set('email', email);
-        // bodyFormData.set('confirmationmdp', confirmationmdp);
-        console.log(email);
-        // let data = new URLSearchParams();
-        // data.append("fos_user_registration_form_email", email);
-        // data.append("fos_user_registration_form_plainPassword_first", ['plainPassword'][mdp]);
-        // data.append("fos_user_registration_form_plainPassword_second", ['plainPassword'][confirmationmdp]);
-        // data.append("fos_user_registration_form_username",[username]);
-        // console.log(data);
-        // return {
-        //     payload: axios.post('http://localhost:8000/register/', data)
-        // }
 
-
-        axios.post('http://localhost:8000/register/', {
-            email: email,
-            username: username,
-            password: mdp,
-            password2: mdp,
+            axios({
+                  method: 'post',
+                  url: 'http://localhost:8000/register',
+                  data: {
+                      username: username,
+                      email: email,
+                      plainPassword: [first => mdp,
+                      second => confirmationmdp]
+                  },
             config: { headers: {'Content-Type': 'application/json' }}
-        })
+             })
             .then(function (response) {
                 console.log(response);
             })
@@ -47,22 +35,6 @@ class Inscription extends Component {
                 console.log(error);
             });
 
-        // axios({
-        //     method: 'post',
-        //     url: 'http://localhost:8000/register/',
-        //     data: {
-        //       "bodyFormData
-        //     },
-        //     config: { headers: {'Content-Type': 'application/json' }}
-        // })
-        //     .then(function (response) {
-        //         //handle success
-        //         console.log(response);
-        //     })
-        //     .catch(function (response) {
-        //         //handle error
-        //         console.log(response);
-        //     });
     }
   render() {
     /*const isLoggedIn = this.state.isLoggedIn;
@@ -92,7 +64,7 @@ class Inscription extends Component {
             <input type="password" className ="champs" id="confirmationmdp" placeholder="Confirmation Mot de passe"/>
           </div>
           <div className ="ensemble_champ">
-            <input type="button" onClick={this.seconnecter} className ="champs btn_commencer" value="COMMENCER"/>
+            <input type="button" onClick={this.postUser} className ="champs btn_commencer" value="COMMENCER"/>
           </div>
           <Link to='/'><u>Déjà un compte ? Connectez-vous </u></Link>
         </div>
