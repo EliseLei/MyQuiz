@@ -28,6 +28,7 @@ class Email extends Component {
       if (writelettre === lettre.toLowerCase()) {
         alreadyplayed = true;
         erreur = true; 
+
         document.getElementById('lettre').value="";
       }
       return true;
@@ -59,7 +60,7 @@ class Email extends Component {
 }
 
   setUpdate(e) {
-      if(/[a-zA-Z]/.test(e.target.value)) {
+      if(/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(e.target.value)) {
         this.setState({writelettre:e.target.value});
       }
   }
