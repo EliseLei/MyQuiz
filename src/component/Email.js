@@ -28,17 +28,26 @@ class Email extends Component {
       if (writelettre === lettre.toLowerCase()) {
         alreadyplayed = true;
         erreur = true; 
+
         document.getElementById('lettre').value="";
       }
       return true;
     })
     
-    if(erreur === true) {
-      erreur = "L'invitation a déjà été envoyé";
-      this.setState({erreur:erreur,});
+    
+    if(/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(document.getElementById('Email').value)) {
+      if(erreur === true) {
+        erreur = "L'invitation a déjà été envoyé";
+        this.setState({erreur:erreur,});
+      }
+      else {
+        erreur = "L'invitation a bien été envoyé :)";
+        this.setState({erreur:erreur,});
+      }
     }
+    
     else {
-      erreur = "L'invitation a bien été envoyé :)";
+      erreur = "l'email n'est pas conforme";
       this.setState({erreur:erreur,});
     }
 
@@ -46,10 +55,10 @@ class Email extends Component {
     if(alreadyplayed === false) {
     
       if(lettersalreadyplayed.push(writelettre)) {
+        //)
         document.getElementById('Email').value="";
         console.log("suppr valeur");
       }
-      
       
         statut = "Oui, la lettre se trouve dans le mot";
         console.log("bon");
@@ -59,9 +68,11 @@ class Email extends Component {
 }
 
   setUpdate(e) {
-      if(/[a-zA-Z]/.test(e.target.value)) {
+    var erreur = false;
+      if(/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(e.target.value)) {
         this.setState({writelettre:e.target.value});
       }
+    
   }
   
   
@@ -76,6 +87,11 @@ class Email extends Component {
         <input type="button" className="btn_ajouter" value="ENVOYER" onClick={this.setValue}/>
        <Joueur lettersalreadyplayed={lettersalreadyplayed}/>
        <p><u>{erreur}</u></p>
+  {/*   <p> <a href="mailto:eliseleininger@gmail.com
+?subject=Notre affaire
+&cc=partenaire@antonio.net
+&bcc=avocat@antonio.net
+&body=Bonjour">  HFjqhfjhfjkeh</a> </p>*/} 
       </div>
     )
   }

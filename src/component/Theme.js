@@ -71,6 +71,7 @@ import axios from "axios/index";
                 {/*<Link to={`/Theme/${ multi }/Questions`}><h2><i className="fa fa-book"></i> Histoire</h2>*/}
                 {/*<span>{componentD
                 idMount()</span></Link>*/}
+                <p><u>Jouer en aléatoire</u></p>
             </div>
 
       </div>
