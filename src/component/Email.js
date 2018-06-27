@@ -11,12 +11,15 @@ class Email extends Component {
       lettre: "", 
       statut: "", 
       erreur: "",
+      writelettre: "",
       lettersalreadyplayed:[], 
       letters: this.props.word,
     }	
   } 
   
   setValue() {
+
+    
     var writelettre = this.state.writelettre.toLowerCase();
     var statut = false;
     var erreur = false;
@@ -49,6 +52,7 @@ class Email extends Component {
     else {
       erreur = "l'email n'est pas conforme";
       this.setState({erreur:erreur,});
+      console.log("pas conforme");
     }
 
       
@@ -65,6 +69,7 @@ class Email extends Component {
         this.setState({statut:statut,});
 
     }
+
 }
 
   setUpdate(e) {
